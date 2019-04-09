@@ -63,7 +63,12 @@ const UICtrl = (function() {
 
             // Insert List Items
             document.querySelector(UISelectors.itemList).innerHTML = html;
+        },
+        getSelectors: function() {
+            return UISelectors;
         }
+
+        
     }
 })();
 
@@ -72,6 +77,12 @@ const UICtrl = (function() {
 
 // App Controller
 const App = (function(ItemCtrl, UICtrl) {
+
+    // Load event listeners
+    const loadEventListeners = function() {
+        // Get UI Selectors
+        const UISelectors = UICtrl.getSelectors();
+    }
     
 
     // Public Methods
