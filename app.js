@@ -40,6 +40,10 @@ const ItemCtrl = (function() {
 
 // UI Controller
 const UICtrl = (function() {
+
+    const UISelectors = {
+        itemList:  '#item-list'
+    }
     
 
     // Public Methods
@@ -56,6 +60,9 @@ const UICtrl = (function() {
               </li>
               `;
             });
+
+            // Insert List Items
+            document.querySelector(UISelectors.itemList).innerHTML = html;
         }
     }
 })();
