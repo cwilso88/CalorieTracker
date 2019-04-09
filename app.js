@@ -15,7 +15,7 @@ const ItemCtrl = (function() {
 
     // Data Structure / State
     const data = {
-        items = [
+        items: [
             {id: 0, name: 'Chicken Pot Pie', calories: 550},
             {id: 1, name: 'Salad', calories: 350},
             {id: 2, name: 'Potato Soup', calories: 150},
@@ -44,7 +44,9 @@ const UICtrl = (function() {
 
     // Public Methods
     return {
-
+        populateItemList: function(items) {
+            let html = '';
+        }
     }
 })();
 
@@ -58,7 +60,14 @@ const App = (function(ItemCtrl, UICtrl) {
     // Public Methods
     return {
         init: function() {
-            console.log('initializing app...');
+            console.log('Initializing app...');
+
+            // Fetch Items from data structure
+            const items = ItemCtrl.getItems();
+
+            // Populate List with items
+            UICtrl.populateItemList(items);
+
         }
     }
 })(ItemCtrl, UICtrl);
