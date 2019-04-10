@@ -84,16 +84,16 @@ const App = (function(ItemCtrl, UICtrl) {
         // Get UI Selectors
         const UISelectors = UICtrl.getSelectors();
 
-        // Add Item Event
-        document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
-
-
         // Add Item Submit 
         const itemAddSubmit = function(e) {
             console.log('Add');
 
             e.preventDefault();
         }
+
+        // Add Item Event
+        document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
+        
     }
     
 
