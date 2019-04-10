@@ -37,6 +37,9 @@ const ItemCtrl = (function() {
             } else {
                 ID = 0;
             }
+
+            // Calories to number
+            calories = parseInt(calories);
         },
         logData: function() {
             return data;
