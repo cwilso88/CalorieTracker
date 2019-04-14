@@ -155,48 +155,49 @@ const UICtrl = (function() {
 
 
 // App Controller
-const App = (function(ItemCtrl, UICtrl) {
-
+const App = (function(ItemCtrl, UICtrl){
     // Load event listeners
-    const loadEventListeners = function() {
-        // Get UI Selectors
-        const UISelectors = UICtrl.getSelectors();
-
-        // Add Item Submit 
-        const itemAddSubmit = function(e) {
-        // Get form input from UI Controller
-        const input = UICtrl.getItemInput();
-
-        // Check for name and calorie input
-        if(input.name !== '' && input.calories !== '') {
-            // Add Item
-            const newItem = ItemCtrl.addItem(input.name, input.calories);
-
-            // Add Item to UI List 
-            UICtrl.addListItem(newItem);
-
-            // Get total calories
-            const totalCalories = ItemCtrl.getTotalCalories();
-
-            // Add total calories to UI
-            UICtrl.showTotalCalories(totalCalories);
-
-            // Clear fields
-            UICtrl.clearInput();
-        }
-            e.preventDefault();
-        }
-
-        // Add Item Event
-        document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
-        
+    const loadEventListeners = function(){
+      // Get UI selectors
+      const UISelectors = UICtrl.getSelectors();
+  
+      // Add item event
+      document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
     }
-    
+  
+    // Add item submit
+    const itemAddSubmit = function(e){
+      // Get form input from UI Controller
+      const input = UICtrl.getItemInput();
+  
+      // Check for name and calorie input
+      if(input.name !== '' && input.calories !== ''){
+        // Add item
+        const newItem = ItemCtrl.addItem(input.name, input.calories);
+  
+        // Add item to UI list
+        UICtrl.addListItem(newItem);
+  
+        // Get total calories
+        const totalCalories = ItemCtrl.getTotalCalories();
+        // Add total calories to UI
+        UICtrl.showTotalCalories(totalCalories);
+  
+        // Clear fields
+        UICtrl.clearInput();
+      }
+  
+      e.preventDefault();
+    }
 
+    
     // Public Methods
     return {
         init: function() {
             console.log('Initializing app...');
+
+            // Set Initial Set
+            UICtrl.clearEditState();
 
             // Fetch Items from data structure
             const items = ItemCtrl.getItems();
