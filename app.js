@@ -202,6 +202,9 @@ const App = (function(ItemCtrl, UICtrl){
             // Break into an array
             const listIdArr = listId.split('-');
 
+            // Get the actual id
+            const id = parseInt(listIdArr[1]);
+
             console.log(listIdArr);
         }
 
