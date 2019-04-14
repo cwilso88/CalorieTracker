@@ -205,7 +205,8 @@ const App = (function(ItemCtrl, UICtrl){
             // Get the actual id
             const id = parseInt(listIdArr[1]);
 
-            console.log(listIdArr);
+            // Get item
+            const itemToEdit = ItemCtrl.getItemById(id);
         }
 
         e.preventDefault();
