@@ -195,8 +195,9 @@ const App = (function(ItemCtrl, UICtrl){
 
     // Update Item Submit
     const itemUpdateSubmit = function(e) {
-
-        console.log('Test');
+        if(e.target.classList.contains('edit-item')) {
+            console.log('edit item');
+        }
 
         e.preventDefault();
     }
