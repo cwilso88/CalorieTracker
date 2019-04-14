@@ -193,6 +193,14 @@ const App = (function(ItemCtrl, UICtrl){
       e.preventDefault();
     }
 
+    // Update Item Submit
+    const itemUpdateSubmit = function(e) {
+
+        console.log('Test');
+
+        e.preventDefault();
+    }
+
     
     // Public Methods
     return {
