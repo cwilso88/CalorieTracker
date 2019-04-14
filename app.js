@@ -196,7 +196,13 @@ const App = (function(ItemCtrl, UICtrl){
     // Update Item Submit
     const itemUpdateSubmit = function(e) {
         if(e.target.classList.contains('edit-item')) {
-            console.log('edit item');
+            // Get list item id (item-0, item-1)
+            const listId = e.target.parentNode.parentNode.id;
+
+            // Break into an array
+            const listIdArr = listId.split('-');
+
+            console.log(listIdArr);
         }
 
         e.preventDefault();
