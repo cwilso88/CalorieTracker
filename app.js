@@ -129,6 +129,7 @@ const UICtrl = (function() {
         updateBtn: '.update-btn',
         deleteBtn: '.delete-btn',
         backBtn: '.back-btn',
+        clearBtn: '.clear-btn',
         addBtn: '.add-btn'
     }
     
@@ -263,6 +264,9 @@ const App = (function(ItemCtrl, UICtrl){
 
       // Back Button event
       document.querySelector(UISelectors.backBtn).addEventListener('click', UICtrl.clearEditState);
+
+      // Clear items event
+      document.querySelector(UISelectors.clearBtn).addEventListener('click', clearAllItemsClick);
     }
   
     // Add item submit
@@ -355,6 +359,12 @@ const App = (function(ItemCtrl, UICtrl){
         UICtrl.clearEditState();
 
         e.preventDefault();
+    },
+
+    // Clear items event
+    const clearAllItemsClick = function() {
+        // Delete all items from the data structure
+        ItemCtrl.clearAllItems();
     }
 
     
