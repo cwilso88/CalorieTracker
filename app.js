@@ -162,7 +162,7 @@ const UICtrl = (function() {
             // Insert Item
             document.querySelector(UISelectors.itemList).insertAdjacentElement('beforeend', li);
         },
-        updateItem: function(item) {
+        updateListItem: function(item) {
             let listItems = document.querySelectorAll(UISelectors.listItems);
 
             // Turn Node list into array
@@ -170,6 +170,15 @@ const UICtrl = (function() {
 
             listItems.forEach(function(listItem){
                 const itemID = listItem.getAttribute('id');
+
+                if(itemID === `item-${item.id}`) {
+                    document.querySelector(`#${itemID}`).innerHTML = `
+                    <strong> ${item.name}: </strong> <em>${item.calories} Calories</em>
+                    <a href="#" class="secondary-content">
+                    <i class="edit-item fa fa-pencil"></i>
+                    </a>
+                    `;
+                }
             });
         },
         clearInput: function() {
@@ -291,6 +300,11 @@ const App = (function(ItemCtrl, UICtrl){
         
         // Update UI
         UICtrl.updateListItem(updatedItem);
+
+        // Get total calories
+        const totalCalories = ItemCtrl.getTotalCalories();
+        // Add total calories to UI
+        UICtrl.showTotalCalories(totalCalories);
 
         e.preventDefault();
     }
