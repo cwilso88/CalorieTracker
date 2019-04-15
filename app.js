@@ -63,7 +63,7 @@ const ItemCtrl = (function() {
         setCurrentItem: function(item) {
             data.currentItem = item;
         },
-        getCurrentItems: function() {
+        getCurrentItem: function() {
             return data.currentItem;
         },
         getTotalCalories: function() {
@@ -150,10 +150,11 @@ const UICtrl = (function() {
             document.querySelector(UISelectors.itemNameInput).value = '';
             document.querySelector(UISelectors.itemCaloriesInput).value = '';
         },
-        addItemToForm: function() {
-            document.querySelector(UISelectors.itemNameInput).value = ItemCtrl.getCurrentItems().name;
-            document.querySelector(UISelectors.itemCaloriesInput).value = ItemCtrl.getCurrentItems().calories;
-        },
+        addItemToForm: function(){
+            document.querySelector(UISelectors.itemNameInput).value = ItemCtrl.getCurrentItem().name;
+            document.querySelector(UISelectors.itemCaloriesInput).value = ItemCtrl.getCurrentItem().calories;
+            UICtrl.showEditState();
+          },
         showTotalCalories: function(totalCalories) {
             document.querySelector(UISelectors.totalCalories).textContent = totalCalories;
         },
@@ -164,6 +165,12 @@ const UICtrl = (function() {
             document.querySelector(UISelectors.backBtn).style.display = 'none';
             document.querySelector(UISelectors.updateBtn).style.display = 'none';
         },
+        showEditState: function(){
+            document.querySelector(UISelectors.updateBtn).style.display = 'inline';
+            document.querySelector(UISelectors.deleteBtn).style.display = 'inline';
+            document.querySelector(UISelectors.backBtn).style.display = 'inline';
+            document.querySelector(UISelectors.addBtn).style.display = 'none';
+          },
         getSelectors: function() {
             return UISelectors;
         }  
