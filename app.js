@@ -1,5 +1,7 @@
 // Storage Controller 
-
+const StorageCtrl = (function(){
+    
+})();
 
 
 
