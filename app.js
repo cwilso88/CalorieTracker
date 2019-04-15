@@ -10,8 +10,18 @@ const StorageCtrl = (function(){
                 items = [];
                 // Push new item
                 items.push(item);
+
+                // Set local storage
+                localStorage.setItem('items', JSON.stringify(items));
             } else {
-                
+                // Get what is already in 
+                items = JSON.parse(localStorage.getItem('items'));
+
+                // Push new item
+                items.push(item);
+
+                // Re set local storage
+                localStorage.setItem('items', JSON.stringify(items));
             }
         }
     }
@@ -391,7 +401,7 @@ const App = (function(ItemCtrl, StorageCtrl, UICtrl){
         UICtrl.clearEditState();
 
         e.preventDefault();
-    },
+    }
 
     // Clear items event
     const clearAllItemsClick = function() {
