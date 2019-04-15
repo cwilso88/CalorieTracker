@@ -60,6 +60,21 @@ const ItemCtrl = (function() {
             });
             return found;
         },
+        updateItem: function(name, calories) {
+            // Calories to number
+            calories = parseInt(calories);
+
+            let found = null;
+
+            data.items.forEach(function(item) {
+                if(item.id === data.currentItem.id) {
+                    item.name = name;
+                    item.calories = calories;
+                    found = item;
+                }
+            });
+            return found;
+        },
         setCurrentItem: function(item) {
             data.currentItem = item;
         },
@@ -146,6 +161,7 @@ const UICtrl = (function() {
             // Insert Item
             document.querySelector(UISelectors.itemList).insertAdjacentElement('beforeend', li);
         },
+        
         clearInput: function() {
             document.querySelector(UISelectors.itemNameInput).value = '';
             document.querySelector(UISelectors.itemCaloriesInput).value = '';
@@ -263,6 +279,9 @@ const App = (function(ItemCtrl, UICtrl){
         // Update item 
         const updatedItem = ItemCtrl.updateItem(input.name, input.calories);
         
+        // Update UI
+        UICtrl.updateListItem(updatedItem);
+
         e.preventDefault();
     }
 
