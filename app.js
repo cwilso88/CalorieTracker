@@ -238,6 +238,12 @@ const App = (function(ItemCtrl, UICtrl){
 
       // Update item event
       document.querySelector(UISelectors.updateBtn).addEventListener('click', itemUpdateSubmit);
+
+      // Delete item event
+      document.querySelector(UISelectors.deleteBtn).addEventListener('click', itemDeleteSubmit);
+
+      // Back Button event
+      document.querySelector(UISelectors.backBtn).addEventListener('click', UICtrl.clearEditState);
     }
   
     // Add item submit
@@ -305,6 +311,8 @@ const App = (function(ItemCtrl, UICtrl){
         const totalCalories = ItemCtrl.getTotalCalories();
         // Add total calories to UI
         UICtrl.showTotalCalories(totalCalories);
+
+        UICtrl.clearEditState();
 
         e.preventDefault();
     }
