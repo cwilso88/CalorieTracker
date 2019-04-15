@@ -109,6 +109,7 @@ const UICtrl = (function() {
 
     const UISelectors = {
         itemList:  '#item-list',
+        listItems: '#item-list li',
         addBtn: '.add-btn',
         itemNameInput: '#item-name',
         itemCaloriesInput: '#item-calories',
@@ -161,7 +162,16 @@ const UICtrl = (function() {
             // Insert Item
             document.querySelector(UISelectors.itemList).insertAdjacentElement('beforeend', li);
         },
-        
+        updateItem: function(item) {
+            let listItems = document.querySelectorAll(UISelectors.listItems);
+
+            // Turn Node list into array
+            listItems = Array.from(listItems);
+
+            listItems.forEach(function(listItem){
+                const itemID = listItem.getAttribute('id');
+            });
+        },
         clearInput: function() {
             document.querySelector(UISelectors.itemNameInput).value = '';
             document.querySelector(UISelectors.itemCaloriesInput).value = '';
