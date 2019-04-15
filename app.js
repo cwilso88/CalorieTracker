@@ -135,7 +135,7 @@ const UICtrl = (function() {
             // Add Class
             li.className = 'collection-item';
             // Add ID
-            li.id = `item.${item.id}`;
+            li.id = `item-${item.id}`;
             // Add HTML
             li.innerHTML = `
             <strong> ${item.name}: </strong> <em>${item.calories} Calories</em>
